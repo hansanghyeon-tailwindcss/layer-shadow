@@ -1,9 +1,9 @@
 {
   "name": "@hyeon/tailwindcss-layer-shadow",
-  "version": "1.0.2",
+  "version": "1.0.13",
   "type": "module",
-  "main": "./dist/tailwindcss-layer-shadow.umd.cjs",
-  "module": "./dist/tailwindcss-layer-shadow.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "keywords": [
     "tailwindcss",
     "shadow"
@@ -23,26 +23,30 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/tailwindcss-layer-shadow.js",
-      "require": "./dist/tailwindcss-layer-shadow.umd.cjs"
-    }
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
-    "build": "vite build"
+    "build": "nanobundle build"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "nanobundle": "^2.0.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.2"
   },
   "peerDependencies": {
+    "tailwindcss": "^3.4.1",
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "fp-ts": "^2.16.3",
-    "tailwindcss": "^3.4.1",
-    "vite": "^5.1.6"
+    "fp-ts": "^2.16.3"
   },
   "publishConfig": {
     "access": "public"
