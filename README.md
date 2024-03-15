@@ -6,6 +6,10 @@
   ![](https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss)
 </div>
 
+## using
+
+layer-shadow는 after와 before로 구성됩니다. 적용할 element에 relative 속성이 필요합니다!
+
 ## example
 
 ```html
