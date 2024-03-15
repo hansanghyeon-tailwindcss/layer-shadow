@@ -1,9 +1,9 @@
 {
   "name": "@hyeon/tailwindcss-layer-shadow",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
-  "main": "./lib/index.js",
-  "module": "./lib/index.mjs",
+  "main": "./dist/tailwindcss-layer-shadow.umd.cjs",
+  "module": "./dist/tailwindcss-layer-shadow.js",
   "keywords": [
     "tailwindcss",
     "shadow"
@@ -22,10 +22,16 @@
     "url": "git+https://github.com/hansanghyeon/tailwindcss-layer-shadow.git"
   },
   "exports": {
-    ".": "./lib/index.js"
+    ".": {
+      "import": "./dist/tailwindcss-layer-shadow.js",
+      "require": "./dist/tailwindcss-layer-shadow.umd.cjs"
+    }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "nanobundle build"
+    "build": "vite build"
   },
   "devDependencies": {
     "bun-types": "latest"
@@ -35,8 +41,8 @@
   },
   "dependencies": {
     "fp-ts": "^2.16.3",
-    "nanobundle": "^2.0.0",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.6"
   },
   "publishConfig": {
     "access": "public"
