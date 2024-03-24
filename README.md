@@ -20,6 +20,6 @@ layer-shadow는 after와 before로 구성됩니다. 적용할 element에 relativ
 
 - [ ] size
 - [ ] opacity
-- [ ] example page
+- [x] example page
 - [ ] auto deploy ci/cd
 
