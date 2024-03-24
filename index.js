@@ -5,22 +5,28 @@ module.exports = plugin(({ addUtilities, theme }) => {
   const p = {
     top: {
       top: '0',
+      width: '100%',
       height: '15px',
       backgroundPosition: '180deg',
     },
     bottom: {
       bottom: '0',
+      width: '100%',
       height: '15px',
       backgroundPosition: '0deg',
     },
     left: {
+      top: '0',
       left: '0',
       width: '15px',
+      height: '100%',
       backgroundPosition: '90deg',
     },
     right: {
+      top: '0',
       right: '0',
       width: '15px',
+      height: '100%',
       backgroundPosition: '-90deg',
     },
   }
@@ -61,31 +67,29 @@ module.exports = plugin(({ addUtilities, theme }) => {
           const className = `.layer-shadow-${direction}-${colorName}-${shade}`
           const directionStyles = directions[direction]
 
+          const { backgroundPosition, ..._before } = directionStyles.before ? directionStyles.before : {}
           const before = directionStyles.before
             ? {
                 ['&::before']: {
                   content: "''",
                   display: 'block',
                   position: 'absolute',
-                  width: '100%',
-                  left: '0',
                   zIndex: '10',
-                  ...directionStyles.before,
-                  background: `linear-gradient(${directionStyles.before.backgroundPosition}, rgba(${rgbValue}, 1) 0%, rgba(${rgbValue}, 0) 100%)`,
+                  ..._before,
+                  background: `linear-gradient(${backgroundPosition}, rgba(${rgbValue}, 1) 0%, rgba(${rgbValue}, 0) 100%)`,
                 },
               }
             : {}
+          const { backgroundPosition: _backgroundPosition, ..._after } = directionStyles.after ? directionStyles.after : {}
           const after = directionStyles.after
             ? {
                 ['&::after']: {
                   content: "''",
                   display: 'block',
                   position: 'absolute',
-                  width: '100%',
-                  left: '0',
                   zIndex: '10',
-                  ...directionStyles.after,
-                  background: `linear-gradient(${directionStyles.after.backgroundPosition}, rgba(${rgbValue}, 1) 0%, rgba(${rgbValue}, 0) 100%)`,
+                  ..._after,
+                  background: `linear-gradient(${_backgroundPosition}, rgba(${rgbValue}, 1) 0%, rgba(${rgbValue}, 0) 100%)`,
                 },
               }
             : {}

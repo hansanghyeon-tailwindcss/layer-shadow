@@ -1,0 +1,38 @@
+name: Build Vite Project
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  demo:
+    name: example 깃헙 페이지 배포
+    # environment:
+    #   name: github-pages
+    #   url: https://hansanghyeon.github.io/tailwindcss-file-input/
+    runs-on: ubuntu-latest
+    env:
+      dir: ./example
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.1
+
+      - name: Install Dependencies
+        run: yarn install
+        working-directory: ${{ env.dir }}
+
+      - name: Build Vite Project
+        run: yarn build
+        working-directory: ${{ env.dir }}
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./example/dist

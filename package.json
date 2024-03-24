@@ -1,6 +1,6 @@
 {
   "name": "@hyeon/tailwindcss-layer-shadow",
-  "version": "1.0.16",
+  "version": "1.0.22",
   "keywords": [
     "tailwindcss",
     "shadow"
@@ -22,9 +22,6 @@
   "files": [
     "index.js"
   ],
-  "scripts": {
-    "build": "nanobundle build"
-  },
   "devDependencies": {
     "tailwindcss": "^3.4.1"
   },
